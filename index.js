@@ -8,7 +8,7 @@
 var Letter = require("./letter.js");
 
 //word array stores possible selections
-var wordsArr =["tofurky","tofu","kale"];
+var wordArr =["tofurky","tofu","kale"];
 
 //random word picker
 var wordChooser=function(){

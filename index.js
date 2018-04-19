@@ -5,7 +5,7 @@
 
 // * Prompts the user for each guess and keeps track of the user's remaining guessesa
 //  `Word.js` *should only* require `Letter.js`
-var Word = require("./word.js")
+var Word = require("./word.js");
 var inquirer = require("inquirer");
 //word array stores possible selections
 var hangman=function(){
@@ -26,21 +26,21 @@ var hangman=function(){
 hangman(); //run hangman
 console.log("hangman.gameword is:" + solutionObj)
 
-//create a new "letter" object for each letter in the gameWord
-// var letters = new Letter()
-// var count = 0;
-// this.play = function () {
-//   if (count < 5) { //run the look 5 times Replace this with the Winning Condition later
-//     inquirer.prompt([
-//       {
-//         name: "userGuess",
-//         message: "Guess a Letter?"
-//       }
-//     ]).then(function (userGuess) {
-//       // Word.Letter.valid(userGuess);
-//       console.log("you guessed " + userGuess)
-//       count++
-//       runTime();
-//     });
-//   }
-// }
+// create a new "letter" object for each letter in the gameWord
+var letters = new Letter();
+var count = 0;
+this.play = function () {
+  if (count < 5) { //run the look 5 times Replace this with the Winning Condition later
+    inquirer.prompt([
+      {
+        name: "userGuess",
+        message: "Guess a Letter?"
+      }
+    ]).then(function (userGuess) {
+      // Word.Letter.valid(userGuess);
+      console.log("you guessed " + userGuess)
+      count++
+      runTime();
+    });
+  }
+}

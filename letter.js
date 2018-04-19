@@ -12,7 +12,7 @@ function Letter(char) {
         if (this.guessed) {
             return this.char;  //update the displayed character
             console.log("Correct") //show message
-            console.log(wordState)//word status with blanks filled in
+            console.log(this.state)//word status with blanks filled in
         } else {
             return "_";
             console.log("Oops") //show message

@@ -1,10 +1,10 @@
 // * **Word.js**: Contains a constructor, Word that depends on the Letter constructor. This is used to create an object representing the current word the user is attempting to guess. That means the constructor should define:
 var Letter = require("./letter.js");
 
-
-function Word(gameWord) {
+var gameWord="kale";
+function Word() {
     // * An array of `new` Letter objects representing the letters of the underlying word
-    this.wordArr = []; //Where do we loop through letters and create a "new Letter(i)";
+    this.letterArr = [    ]; //Where do we loop through letters and create a "new Letter(i)";
     // * A function that returns a string representing the word. 
     this.wordString = function () {
         // This should call the function on each letter object (the first function defined in `Letter.js`) that displays the character or an underscore and concatenate those together.
@@ -18,25 +18,19 @@ function Word(gameWord) {
         }
 
     }
-    this.wordArrBuild=function(gameWord){
+    this.wordArrBuild=function(){
+        console.log("from wordjs line 22"+gameWord)
+
         var gameWordArr=gameWord.split("");
+        console.log("from wordjs line 23"+gameWordArr)
         for(i=0;i<gameWordArr;i++){
-            var Letters = new Letter(gameWordArr[i])
-            this.wordArr.push(Letters);
-            }
+            var Letters = new Letter(gameWordArr[i]); //construct a new Letters Object for each character in our hangman.gameWord
+            this.letterArr.push(Letters); }
+            console.log("from wordjs line 26"+Letters)//undefined
+           
     }
+    this.wordArrBuild();
 };
-
-
-console.log(gameWordArr);
-
-
-var letterConstructor=function(){
-for(i=0;i<gameWordArr;i++){
-var Letters = new Letter(gameWordArr[i])
-this.wordArr.push(Letters);
-}
-}
 
 
 module.exports = Word;

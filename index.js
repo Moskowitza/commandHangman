@@ -17,11 +17,14 @@ var hangman=function(){
     var j = Math.floor((Math.random() * i)) //returns a number between 0 and wordArr.length-1
     this.gameWord = this.wordArr[j]; //the word to play with has been selected
   }
-  this.solutionObj = new Word(this.gameWord);//takes the selected word and constructs a word 
+  this.solutionObj = new Word(gameWord);//takes the selected word and constructs a word 
+  this.wordChooser()
+  // console.log("indexjs line 22"+ this.solutionObj)
 }
-console.log(hangman.solutionObj);//
+
 
 hangman(); //run hangman
+console.log("hangman.gameword is:" + solutionObj)
 
 //create a new "letter" object for each letter in the gameWord
 // var letters = new Letter()

@@ -1,0 +1,22 @@
+{
+  "name": "commandhangman",
+  "version": "0.1.0",
+  "description": "Command Line Hangman Game ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moskowitza/commandHangman.git"
+  },
+  "author": "Aaron Moskowitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moskowitza/commandHangman/issues"
+  },
+  "homepage": "https://github.com/Moskowitza/commandHangman#readme",
+  "dependencies": {
+    "inquirer": "^5.2.0"
+  }
+}

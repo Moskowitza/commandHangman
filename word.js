@@ -37,7 +37,7 @@ function Word(gameWord) {
         for (i = 0; i < this.letterArr.length; i++) {
             console.log("finding out if "+guess+" is a letter in our word.")
             console.log(this.letterArr);
-            this.letterArr[i].Letter.validator(guess);
+            this.letterArr[i].Letter.isValid(guess);
         }
     }
 }

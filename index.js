@@ -11,7 +11,7 @@ var inquirer = require("inquirer");
 var wordArr = ["tofurky", "tofu", "kale"];
 console.log("line 12 " + wordArr);
 var gameWord = "";
-console.log("line 14 " + gameWord);
+console.log("line 14 'gameword is empty' : " + gameWord);
 //a method to pick a word from this.wordArr
 var wordChooser = function () {
   var i = wordArr.length;//how many choices (3)
@@ -24,8 +24,7 @@ var wordChooser = function () {
 wordChooser();
 console.log("wordChosoer ran, game word is " + gameWord);
 var Word = require("./word.js");
-var wordObj = new Word(gameWord);//takes the selected word and constructs a word 
-
+var wordObj = new Word(gameWord);//takes the selected word and constructs a word obj
 console.log("indexjs line 22" + wordObj)
 
 

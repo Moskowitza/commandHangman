@@ -6,19 +6,20 @@ function Letter(char) {
     // * A string value to store the underlying character for the letter
     this.char = char;
     // * A boolean value that stores whether that letter has been guessed yet
-    this.guessed = false;//default to false?
+    this.guessed = true;//default to false?
     // * A function that returns the underlying character if the letter has been guessed, or a placeholder (like an underscore) if the letter has not been guessed
     this.state = function () {
         if (this.guessed) {
-            return this.char;  //update the displayed character
-            console.log("Correct") //show message
-            console.log(this.state)//word status with blanks filled in
+            this.char= char;  //update the displayed character
+            // console.log("Correct") //show message
+            // console.log(this.state)//word status with blanks filled in
         } else {
-            return "_";
-            console.log("Oops") //show message
-            console.log("_")//word status with blanks filled in
+            this.char="_";
+            // console.log("Oops") //show message
+            // console.log("_")//word status with blanks filled in
         }
     };
+    this.state();
     // * A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
     this.valid = function (userGuess) {
         if (userGuess === this.char) {

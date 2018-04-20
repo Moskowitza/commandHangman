@@ -2,7 +2,8 @@
 var Letter = require("./letter.js");
 
 // var gameWord="kale";
-function Word() {
+function Word(gameWord) {
+    this.gameWord=gameWord;
     // * An array of `new` Letter objects representing the letters of the underlying word
     this.letterArr = [    ]; //Where do we loop through letters and create a "new Letter(i)";
     // * A function that returns a string representing the word. 

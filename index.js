@@ -17,8 +17,9 @@ var hangman=function(){
     var j = Math.floor((Math.random() * i)) //returns a number between 0 and wordArr.length-1
     this.gameWord = this.wordArr[j]; //the word to play with has been selected
   }
+  this.wordChooser();
   this.solutionObj = new Word(gameWord);//takes the selected word and constructs a word 
-  this.wordChooser()
+  
   // console.log("indexjs line 22"+ this.solutionObj)
 }
 

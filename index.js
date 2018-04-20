@@ -25,28 +25,21 @@ wordChooser();
 console.log("wordChosoer ran, game word is " + gameWord);
 var Word = require("./word.js");
 var wordObj = new Word(gameWord);//takes the selected word and constructs a word obj
-console.log("indexjs line 22" + wordObj)
-
-
-
-//run hangman
-
-
-// create a new "letter" object for each letter in the gameWord
-// var letters = new Letter();
-// var count = 0;
-// this.play = function () {
-//   if (count < 5) { //run the look 5 times Replace this with the Winning Condition later
-//     inquirer.prompt([
-//       {
-//         name: "userGuess",
-//         message: "Guess a Letter?"
-//       }
-//     ]).then(function (userGuess) {
-//       // Word.Letter.valid(userGuess);
-//       console.log("you guessed " + userGuess)
-//       count++
-//       runTime();
-//     });
-//   }
-// }
+console.log("indexjs line 22" + JSON.stringify(wordObj))
+var count=0;
+var play = function () {
+  if (count < 5) { //run the look 5 times Replace this with the Winning Condition later
+    inquirer.prompt([
+      {
+        name: "userGuess",
+        message: "Guess a Letter?"
+      }
+    ]).then(function (userGuess) {
+      // Word.Letter.valid(userGuess);
+      console.log("you guessed " + JSON.stringify(userGuess));
+      count++
+      play();
+    });
+  }
+}
+play();

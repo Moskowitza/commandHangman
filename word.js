@@ -2,15 +2,17 @@
 var Letter = require("./letter.js");
 
 // var gameWord="kale";
-function Word(gameWord) {
-    this.gameWord=gameWord;
-    // * An array of `new` Letter objects representing the letters of the underlying word
-    this.letterArr = [    ]; //Where do we loop through letters and create a "new Letter(i)";
+function Word(x) {
+    this.gameWord = JSON.parse(x); 
+    this.letterArr=[];
+    console.log("this gameWord value is" + this.gameWord + "and the type is "+ typeof gameWord);
     // * A function that returns a string representing the word. 
     this.wordString = function () {
         // This should call the function on each letter object (the first function defined in `Letter.js`) that displays the character or an underscore and concatenate those together.
         //for (each this.letter.char)
-        // this.Letter.state.join(",");  ? 
+        console.log("this LetterState value is" + this.letter.state + "and the type is "+ typeof this.letter.state );
+
+        this.Letter.state.join(",");
     };
     // * A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in `Letter.js`)
     this.valid = function (character) {
@@ -18,19 +20,19 @@ function Word(gameWord) {
             this.Letter.guessed = true;
         }
     }
-    this.addLetter=function(char){
-        console.log("from wordjs line 22"+gameWord)
-        var gameWordArr=gameWord.split("");
-        console.log("from wordjs line 23"+gameWordArr)
-        for(i=0;i<gameWordArr.length;i++){
-            var char=gameWordArr[i]
+    this.addLetter = function (char) {
+        console.log("from wordjs line 22" + gameWord)
+        var gameWordArr = gameWord.split("");
+        console.log("from wordjs line 23" + gameWordArr)
+        for (i = 0; i < gameWordArr.length; i++) {
+            var char = gameWordArr[i]
             console.log(char)
             // var Letter = new Letter(char); 
-            this.letterArr.push(new Letter(char)); }
-            // console.log("from wordjs line 29"+Letter)           
+            this.letterArr.push(new Letter(char));
+        }
+        console.log("from wordjs line 29"+Letter)           
     }
     this.addLetter();
-};
-Word();
-console.log("line 34"+letterArr);
+}
+// Word()
 module.exports = Word;

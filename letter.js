@@ -23,6 +23,7 @@ function Letter(char) {
     this.validator = function (guess) {
         if (guess === this.char) {
             this.guessed = true;
+            console.log("hi")
         }
     }
 };

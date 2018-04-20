@@ -35,7 +35,9 @@ function Word(gameWord) {
     // * A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in `Letter.js`)
     this.validator = function (guess) {
         for (i = 0; i < this.letterArr.length; i++) {
-            this.letterArr[i].validator(guess);
+            console.log("finding out if "+guess+" is a letter in our word.")
+            console.log(this.letterArr);
+            this.letterArr[i].Letter.validator(guess);
         }
     }
 }

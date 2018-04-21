@@ -30,5 +30,3 @@ function Letter(char) {
     }
 };
 module.exports = Letter;
-
-

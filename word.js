@@ -4,32 +4,34 @@ var Letter = require("./letter.js");
 
 function Word(gameWord) {
     this.gameWord = gameWord;
-    // console.log("in Wordjs this gameWord value is " + this.gameWord + " and the type is " + typeof gameWord);
-    this.letterArr = [];
+    this.letterArr = gameWord.split('').map(function(letter) {
+        return new Letter(letter);
+    });
     // * A function that returns a string representing the word. 
-    this.addLetter = function (char) {
-        console.log("from wordjs line 11 gameWord: " + gameWord + " and the type is " + typeof gameWord)
-        var gameWordArr = gameWord.split("");
-        console.log("from wordjs line 13 gamewordArr: " + gameWordArr + " and the type is " + typeof gameWordArr)
-        for (i = 0; i < gameWordArr.length; i++) {
-            var char = gameWordArr[i]
-            console.log("char from add Lettermethod " + char)
-            // var Letter = new Letter(char); 
-            this.letterArr.push(new Letter(char));
-        }
-    }
-    this.addLetter();
+    // this.addLetter = function (char) {
+    //     console.log("from wordjs line 11 gameWord: " + gameWord + " and the type is " + typeof gameWord)
+    //     var gameWordArr = gameWord.split("");
+    //     console.log("from wordjs line 13 gamewordArr: " + gameWordArr + " and the type is " + typeof gameWordArr)
+    //     for (i = 0; i < gameWordArr.length; i++) {
+    //         var char = gameWordArr[i]
+    //         console.log("char from add Lettermethod " + char)
+    //         // var Letter = new Letter(char); 
+    //         this.letterArr.push(new Letter(char));
+    //     }
+    // }
+
+    // this.addLetter();
     console.log("from line 22 this letterArr value  " + JSON.stringify(this.letterArr) + " and the type is " + typeof this.letterArr);
-    this.replyArr = [];
     this.wordString = function () {
+        var replyArr = [];
         // This should call the function on each letter object (the first function defined in `Letter.js`) that displays the character or an underscore and concatenate those together.
         //for (each this.letter.char)
         for (i = 0; i < this.letterArr.length; i++) {
             var replyString = this.letterArr[i].state();
             console.log("THIS replyString value is: " + replyString + "and the type is " + typeof replyString);
-            this.replyArr.push(replyString);
+            replyArr.push(replyString);
         }
-        console.log("reply array joined: " + this.replyArr.join(""))
+        console.log("reply array joined: " + replyArr.join(""))
     };
     
     // * A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in `Letter.js`)

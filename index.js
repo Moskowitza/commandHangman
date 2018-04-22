@@ -1,18 +1,13 @@
 
 // * **index.js**: The file containing the logic for the course of the game, which depends on `Word.js` and:
 // * Randomly selects a word and uses the `Word` constructor to store it
-
-// * Prompts the user for each guess and keeps track of the user's remaining guessesa
-//  `Word.js` *should only* require `Letter.js`
-
 var inquirer = require("inquirer");
-//word array stores possible selections
+var Word = require("./word.js");
 
-var wordArr = ["tofurky", "tofu", "kale"];
-// console.log("line 12 " + wordArr);
+
+
+var wordArr = ["hummus", "tofu", "kale"];
 var gameWord = "";
-// console.log("line 14 'gameword is empty' : " + gameWord);
-//a method to pick a word from this.wordArr
 var wordChooser = function () {
   var i = wordArr.length;//how many choices (3)
   // console.log("i " + i);
@@ -22,28 +17,34 @@ var wordChooser = function () {
   return gameWord;
 }
 wordChooser();
-console.log("wordChosoer ran, game word is " + gameWord);
-var Word = require("./word.js");
+
+
 var wordObj = new Word(gameWord);//takes the selected word and constructs a word obj
-// console.log("indexjs line 28" + JSON.stringify(wordObj))
-var count=0;
+
+var count=5;
 var guessedArr=[];
+var gameBoardArr=[];
+
 var play = function () {
-  if (count < 5) { //run the loop 5 times Replace this with the Winning or losing Condition later
+  if (count > 0) { //run the loop 5 times Replace this with the Winning or losing Condition later
     inquirer.prompt([
       {
         name: "userGuess",
         message: "Guess a Letter?"
       }
     ]).then(function (input) {
-      // Word.Letter.valid(userGuess);
+      console.log(JSON.stringify(input));
       var guess=JSON.stringify(input.userGuess);
-      console.log("you guessed " + guess);
+      console.log("Following the prompt, you guessed " + guess);
       wordObj.validator(guess); //pass this into our constuctors through Word.validator???
       guessedArr.push(guess);
-      console.log("guessed letters: "+guessedArr);
-      console.log(wordObj.replyArr);
-      count++
+      // wordObj.wordString(); //This is the Constructor that will create the g_me bo_rd 
+      // gameBoardArr.push(wordObj.wordString);
+      console.log("Guessed letters: "+guessedArr);
+      console.log("State of Play: "+gameBoardArr);
+      count--
+      console.log("you have "+count+" guesses remaining")
+      console.log(myObj.wordString)
       play();
     });
   }

@@ -11,24 +11,21 @@ function Letter(char) {
     this.state = function () {
         if (this.guessed) {
             return this.char;  //update the displayed character
-            // console.log("Correct") //show message
-            // console.log(this.state)//word status with blanks filled in
         } else {
             return  "_";
-            // console.log("Oops") //show message
-            // console.log("_")//word status with blanks filled in
         }
     };
     // * A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
     this.isValid = function (guess) {
-        test=JSON.parse(guess);
-        console.log("we hit isValid")
+        console.log("HO! "+guess)
+        console.log("thischar "+ this.char)
 
-        if (test === this.char) {
+        if (guess === this.char) {
             this.guessed = true;
-            console.log("we have a match")
-            console.log("this.guessed: "+this.guessed)
         }
     }
 };
+// Code to test:
+// myLetterObj=new Letter("a");
+// console.log(myLetterObj);
 module.exports = Letter;

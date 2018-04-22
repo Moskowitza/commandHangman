@@ -3,29 +3,11 @@ var Letter = require("./letter.js");
 
 
 function Word(gameWord) {
-    // this.gameWord = gameWord;
+    //  * An array of `new` Letter objects representing the letters of the underlying word
     this.letterArr = gameWord.split('').map(function (letter) {
         return new Letter(letter);
     });
-    console.log("this letterArr"+this.letterArr.Letter);
-    // * A function that returns a string representing the word. 
-    // this.addLetter = function (char) {
-    //     console.log("from wordjs line 11 gameWord: " + gameWord + " and the type is " + typeof gameWord)
-    //     var gameWordArr = gameWord.split("");
-    //     console.log("from wordjs line 13 gamewordArr: " + gameWordArr + " and the type is " + typeof gameWordArr)
-    //     for (i = 0; i < gameWordArr.length; i++) {
-    //         var char = gameWordArr[i]
-    //         console.log("char from add Lettermethod " + char)
-    //         // var Letter = new Letter(char); 
-    //         this.letterArr.push(new Letter(char));
-    //     }
-    // }
-
-    // this.addLetter();
-    // console.log("from line 22 this letterArr value  " + JSON.stringify(this.letterArr) + " and the type is " + typeof this.letterArr);
-
     // * A function that returns a string representing the word. This should call the function on each letter object (the first function defined in `Letter.js`) that displays the character or an underscore and concatenate those together.
-
     this.wordString = function () {
         var replyArr = [];
         // This should call the function on each letter object (the first function defined in `Letter.js`) that displays the character or an underscore and concatenate those together.
@@ -37,29 +19,19 @@ function Word(gameWord) {
         }
         console.log("reply array joined: " + replyArr.join(""))
     };
-    // this.wordString=function(){
+    // * A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in `Letter.js`)
+    this.validator = function (guess) {  
+        this.letterArr.forEach(function(letterObj){
+            letterObj.isValid(guess);
+        });
+        console.log("In Validator: " + JSON.stringify(this.letterArr));
+    }
+
+};
+
+module.exports = Word;
+
+   // this.wordString=function(){
     //     this.letterArr.forEach(element => {this.letterArr.state();
     //     });
     // }
-
-    // * A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in `Letter.js`)
-    //     this.validator = function(){
-    //         this.letterArr.forEach(function (guess) {
-    //         Letter(test);
-    //         console.log("validator ran "+ test)
-    //     });
-    // }
-
-    this.validator = function () {
-        for (i = 0; i < this.letterArr.length; i++) {
-            console.log("finding out if " + guess + " is a letter in our word.")
-            console.log(this.letterArr);
-            this.letterArr[i].isValid(guess);
-        }
-    }
-        // this.validator();
-        // this.wordString();
-
-    };
-    // Word()
-    module.exports = Word;

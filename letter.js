@@ -27,7 +27,7 @@ function Letter(char) {
         if (test === this.char) {
             this.guessed = true;
             console.log("we have a match")
-            console.log(this.guessed)
+            console.log("this.guessed: "+this.guessed)
         }
     }
 };

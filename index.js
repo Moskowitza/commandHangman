@@ -25,12 +25,15 @@ var wordObj = new Word(gameWord);//takes the selected word and constructs a word
 //game letters
 var gameWordArr = gameWord.split("");
 console.log(gameWordArr);
-var wrongGuesses =[];//only hold Graveyard letters  
+var wrongGuesses = [];//only hold Graveyard letters  
 //invoke this function when creating the guessed array
-guessArrBuild=function(el) {
-    if (wrongGuesses.indexOf(el) === -1) wrongGuesses.push(el)
+guessArrBuild = function (userGuess) {
+  if ((wrongGuesses.indexOf(userGuess) === -1) && (gameWordArr.indexOf(userGuess) === -1)) {
+    wrongGuesses.push(userGuess);
+  }
 }
-console.log(wrongGuesses);
+
+
 // myHanging = new Hanging(guessedArr);
 //play function
 console.log(gameWord) //our solution
@@ -53,8 +56,8 @@ var play = function () {
       wordObj.wordString(); //displays the word representation
 
       guessArrBuild(guess);  // push to guessedArray or not
-      console.log("wrong Guesses: "+wrongGuesses); //how can I keep the right guesses out?
-      
+      console.log("wrong Guesses: " + wrongGuesses); //how can I keep the right guesses out?
+
       // myHanging.staging(wrongGuesses);
       play();//the loop play
     });

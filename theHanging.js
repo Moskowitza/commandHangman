@@ -23,7 +23,8 @@ var Hanging = function (guessedArr) {
                 break;
             case 6:
                 this.hung6();
-                case 7:
+                break;
+            case 7:
                 this.hung7();
         }
     }

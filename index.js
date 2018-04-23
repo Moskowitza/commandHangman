@@ -30,26 +30,36 @@ function guessArrBuild(el){
 myHanging= new Hanging(guessedArr);
 //play function
 var play = function () {
-  if (!guessedArr.length==7) { //run the loop 5 times Replace this with the Winning or losing Condition later
+  if (guessedArr.length<8) { //run the loop 5 times Replace this with the Winning or losing Condition later
     inquirer.prompt([
       {
         name: "userGuess",
         message: "Guess a Letter?"
       }
     ]).then(function (input) {
-
-      var guess = JSON.stringify(input.userGuess);
+      console.log(gameWord)
+//TAKE IN THE GUESS
+      var guess = input.userGuess;
       console.log("Following the prompt, you guessed " + guess);
-      wordObj.validator(guess); //pass this into our constuctors through Word.validator???
-      guessArrBuild(guess); //store guesses
+//See if the Guess is in our word     
+      wordObj.validator(guess); 
+//IF IT IS     
       wordObj.wordString();
-      // wordObj.wordString(); //This is the Constructor that will create the g_me bo_rd 
-      // gameBoardArr.push(wordObj.wordString);
-      myHanging.staging(guessedArr)
-
-      console.log("you have " + count + " guesses remaining")
       console.log(wordObj.wordString)
-      play();
+//IF IT IS NOT
+//push it into the array
+if(!wordObj.validator(guess)){
+      guessArrBuild(guess);   
+//grab the hanging image     
+      myHanging.staging(guessedArr)
+    }
+//Keep Playing if we don't have a win
+if(wordObj.wordString===gameWord){
+ console.log("WINNER WINNER CHICKEN DINNER!")
+ process.exit();
+}else{
+  play();
+}
     });
   }
 }

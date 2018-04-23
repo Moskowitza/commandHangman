@@ -21,12 +21,16 @@ wordChooser();//run our word Chooser
 //*Create a wordObj using the word constuctor
 var wordObj = new Word(gameWord);//takes the selected word and constructs a word obj
 
-var count = 7;
+
 var guessedArr = [];
+//invoke this function when creating the guessed array
+function guessArrBuild(el){
+  if (guessedArr.indexOf(el) === -1) guessedArr.push(el)
+}
 myHanging= new Hanging(guessedArr);
 //play function
 var play = function () {
-  if (count > 0) { //run the loop 5 times Replace this with the Winning or losing Condition later
+  if (!guessedArr.length==7) { //run the loop 5 times Replace this with the Winning or losing Condition later
     inquirer.prompt([
       {
         name: "userGuess",
@@ -37,12 +41,12 @@ var play = function () {
       var guess = JSON.stringify(input.userGuess);
       console.log("Following the prompt, you guessed " + guess);
       wordObj.validator(guess); //pass this into our constuctors through Word.validator???
-      guessedArr.push(guess); //store guesses
+      guessArrBuild(guess); //store guesses
       wordObj.wordString();
       // wordObj.wordString(); //This is the Constructor that will create the g_me bo_rd 
       // gameBoardArr.push(wordObj.wordString);
       myHanging.staging(guessedArr)
-      count--
+
       console.log("you have " + count + " guesses remaining")
       console.log(wordObj.wordString)
       play();

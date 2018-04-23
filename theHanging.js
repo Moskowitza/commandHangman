@@ -3,6 +3,9 @@ var Hanging = function (guessedArr) {
     this.staging = function () {
         console.log(guessedArr.length)
         switch (guessedArr.length) {
+            case 0:
+            console.log("Good Guess!")
+            break;
             case 1:
                 this.hung1();
                 break;
@@ -95,11 +98,12 @@ var Hanging = function (guessedArr) {
         console.log("  |      /  \\  ")
         console.log("__|___________|")
         console.log("__|_You_Died__|")
+        process.exit()
     };
 }
 
-var guessedArr=["a","b","c"];
-console.log(guessedArr);
-myHanging= new Hanging(guessedArr);
-myHanging.staging(guessedArr);
+// var guessedArr=["a","b","c"];
+// console.log(guessedArr);
+// myHanging= new Hanging(guessedArr);
+// myHanging.staging(guessedArr);
 module.exports = Hanging;

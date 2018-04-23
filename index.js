@@ -49,7 +49,7 @@ var play = function () {
       }
     ]).then(function (input) {
       //TAKE IN THE GUESS
-      var guess = input.userGuess;
+      var guess = input.userGuess[0];
       console.log("Following the prompt, you guessed " + guess);
       //See if the Guess is in our word  
       wordObj.validator(guess); //runs logic
@@ -60,18 +60,6 @@ var play = function () {
 
       myHanging.staging(wrongGuesses);
      
-      if(gameWordArr.length=0){
-        console.log("YOU WIN")
-      }
-      // //get a winning exit!
-      // wordObj.forEach(winner);
-      // function winner(currentValue) {
-      //   if(currentValue.guessed === true){
-      //     console.log("YOU WIN")
-      //   }
-      // }
-      
-
       play();//the loop play
     });
   }

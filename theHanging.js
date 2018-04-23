@@ -89,7 +89,7 @@ var Hanging = function (wrongGuesses) {
         console.log("  |       O   ")
         console.log("  |     / | \\ ")
         console.log("  |       |   ")
-        console.log("  |      /    ")
+        console.log("  |     /    ")
         console.log("__|___________|")
         console.log(wrongGuesses);
     };
@@ -99,7 +99,7 @@ var Hanging = function (wrongGuesses) {
         console.log("  |       O   ")
         console.log("  |     / | \\ ")
         console.log("  |       |   ")
-        console.log("  |      /  \\  ")
+        console.log("  |     /  \\  ")
         console.log("__|___________|")
         console.log("__|_You_Died__|")
         

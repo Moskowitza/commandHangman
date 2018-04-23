@@ -22,8 +22,10 @@ wordChooser();//run our word Chooser
 //*Create a wordObj using the word constuctor
 var wordObj = new Word(gameWord);//takes the selected word and constructs a word obj
 
-
+var gameWordArr = gameWord.split("");
+console.log(gameWordArr);
 var guessedArr = [];
+var wrongGuesses =[];
 //invoke this function when creating the guessed array
 function guessArrBuild(el) {
   if (guessedArr.indexOf(el) === -1) guessedArr.push(el)
@@ -48,13 +50,12 @@ var play = function () {
       //See if the Guess is in our word  
       wordObj.validator(guess); //runs logic
       wordObj.wordString(); //displays the word representation
-      function executioner(guess){
-        if(!wordObj.letterArr.indexof(guess)){//guess is not in the word  
-          guessArrBuild(guess);
-          myHanging.staging(guessedArr);
-        }
-      }
+
+
+      guessArrBuild(guess);  // push to guessedArray or not
+      myHanging.staging(guessedArr);
       play();//the loop play
+
     });
   }
 }

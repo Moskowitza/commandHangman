@@ -1,5 +1,8 @@
-var Hanging = function (guessedArr) {
-    // create a function that takes in the lenght of wrong guesses
+var Hanging = function (char) {
+    //wrong character Array
+    guessedArr = [];
+
+    // create a function that takes in the length of wrong guesses as switch cases
     this.staging = function () {
         console.log(guessedArr.length)
         switch (guessedArr.length) {
@@ -7,29 +10,30 @@ var Hanging = function (guessedArr) {
             console.log("Good Guess!")
             break;
             case 1:
-                this.hung1();
+                this.hung1()
                 break;
             case 2:
-                this.hung2();
+                this.hung2()
                 break;
             case 3:
-                this.hung3();
+                this.hung3()
                 break;
             case 4:
-                this.hung4();
+                this.hung4()
                 break;
             case 5:
-                this.hung5();
+                this.hung5()
                 break;
             case 6:
-                this.hung6();
+                this.hung6()
                 break;
             case 7:
-                this.hung7();
+                this.hung7()
+                process.exit();
         }
     }
 
-
+//our images
     this.hung1 = function () {
         console.log("  ________    ")
         console.log("  |       |   ")
@@ -99,7 +103,7 @@ var Hanging = function (guessedArr) {
         console.log("  |      /  \\  ")
         console.log("__|___________|")
         console.log("__|_You_Died__|")
-        process.exit()
+        
     };
 }
 

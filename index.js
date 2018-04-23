@@ -24,42 +24,36 @@ var wordObj = new Word(gameWord);//takes the selected word and constructs a word
 
 var guessedArr = [];
 //invoke this function when creating the guessed array
-function guessArrBuild(el){
+function guessArrBuild(el) {
   if (guessedArr.indexOf(el) === -1) guessedArr.push(el)
 }
-myHanging= new Hanging(guessedArr);
+myHanging = new Hanging(guessedArr);
 //play function
+console.log(gameWord) //our solution
 var play = function () {
-  if (guessedArr.length<8) { //run the loop 5 times Replace this with the Winning or losing Condition later
+
+  //Run this loop while the guess array is less than 8, though we have other exit points
+  if (guessedArr.length < 8) {
     inquirer.prompt([
       {
         name: "userGuess",
         message: "Guess a Letter?"
       }
     ]).then(function (input) {
-      console.log(gameWord)
-//TAKE IN THE GUESS
+      //TAKE IN THE GUESS
       var guess = input.userGuess;
       console.log("Following the prompt, you guessed " + guess);
-//See if the Guess is in our word     
-      wordObj.validator(guess); 
-//IF IT IS     
+      //See if the Guess is in our word  
+      wordObj.validator(guess);
       wordObj.wordString();
-      console.log(wordObj.wordString)
-//IF IT IS NOT
-//push it into the array
-if(!wordObj.validator(guess)){
-      guessArrBuild(guess);   
-//grab the hanging image     
+
+      guessArrBuild(guess);
+
       myHanging.staging(guessedArr)
-    }
-//Keep Playing if we don't have a win
-if(wordObj.wordString===gameWord){
- console.log("WINNER WINNER CHICKEN DINNER!")
- process.exit();
-}else{
-  play();
-}
+
+
+      play();
+
     });
   }
 }

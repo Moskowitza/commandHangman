@@ -3,7 +3,7 @@
 // * Randomly selects a word and uses the `Word` constructor to store it
 var inquirer = require("inquirer");
 var Word = require("./word.js");
-// var Hanging = require("./theHanging.js");
+var Hanging = require("./theHanging.js");
 
 
 //* Pick a Word to play with from an Array
@@ -34,7 +34,7 @@ guessArrBuild = function (userGuess) {
 }
 
 
-// myHanging = new Hanging(guessedArr);
+myHanging = new Hanging(wrongGuesses);
 //play function
 console.log(gameWord) //our solution
 
@@ -58,9 +58,23 @@ var play = function () {
       guessArrBuild(guess);  // push to guessedArray or not
       console.log("wrong Guesses: " + wrongGuesses); //how can I keep the right guesses out?
 
-      // myHanging.staging(wrongGuesses);
+      myHanging.staging(wrongGuesses);
+     
+      if(gameWordArr.length=0){
+        console.log("YOU WIN")
+      }
+      // //get a winning exit!
+      // wordObj.forEach(winner);
+      // function winner(currentValue) {
+      //   if(currentValue.guessed === true){
+      //     console.log("YOU WIN")
+      //   }
+      // }
+      
+
       play();//the loop play
     });
   }
 }
-play(); //pull the game
+play(); //play the game
+

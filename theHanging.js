@@ -1,14 +1,10 @@
-var Hanging = function (char) {
+var Hanging = function (wrongGuesses) {
     //wrong character Array
-    this.wrongGuesses = [];
-    this.guessArrBuilder=function(el) {
-        if (this.wrongGuesses.indexOf(el) === -1) this.wrongGuesses.push(el)
-      }
 
     // create a function that takes in the length of wrong guesses as switch cases
     this.staging = function () {
-        console.log(this.wrongGuesses.length)
-        switch (guessedArr.length) {
+        console.log(wrongGuesses.length)
+        switch (wrongGuesses.length) {
             case 0:
             console.log("Good Guess!")
             break;
@@ -45,7 +41,7 @@ var Hanging = function (char) {
         console.log("  |           ")
         console.log("  |           ")
         console.log("__|___________|")
-        console.log(guessedArr);
+        console.log(wrongGuesses);
     }
     this.hung2 = function () {
         console.log("  ________    ")
@@ -55,7 +51,7 @@ var Hanging = function (char) {
         console.log("  |           ")
         console.log("  |           ")
         console.log("__|___________|")
-        console.log(guessedArr);
+        console.log(wrongGuesses);
     };
     this.hung3 = function () {
         console.log("  ________    ")
@@ -65,7 +61,7 @@ var Hanging = function (char) {
         console.log("  |       |   ")
         console.log("  |           ")
         console.log("__|___________|")
-        console.log(guessedArr);
+        console.log(wrongGuesses);
     };
     this.hung4 = function () {
         console.log("  ________    ")
@@ -75,7 +71,7 @@ var Hanging = function (char) {
         console.log("  |       |   ")
         console.log("  |         ")
         console.log("__|___________|")
-        console.log(guessedArr);
+        console.log(wrongGuesses);
     };
     this.hung5 = function () {
         console.log("  ________    ")
@@ -85,7 +81,7 @@ var Hanging = function (char) {
         console.log("  |       |   ")
         console.log("  |           ")
         console.log("__|___________|")
-        console.log(guessedArr);
+        console.log(wrongGuesses);
     };
     this.hung6 = function () {
         console.log("  ________    ")
@@ -95,7 +91,7 @@ var Hanging = function (char) {
         console.log("  |       |   ")
         console.log("  |      /    ")
         console.log("__|___________|")
-        console.log(guessedArr);
+        console.log(wrongGuesses);
     };
     this.hung7 = function () {
         console.log("  ________    ")

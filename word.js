@@ -25,28 +25,5 @@ function Word(gameWord) {
         });
     };
 };
-    //CODE for TESTING
-    // myWordObj = new Word("bana");
-    // console.log(myWordObj); //everything in default state
-    // myWordObj.validator("b");//pass a letter to check
-    // myWordObj.wordString();//Generate a string of l_tt_rs
-
-
-
-
-    //EXPORT MODULE
+ //EXPORT MODULE
     module.exports = Word;
-
-   // this.wordString=function(){
-    //     this.letterArr.forEach(element => {this.letterArr.state();
-    //     });
-    // }
-    // this.wordString = function () {
-    //     var replyArr = [];
-    //     for (i = 0; i < this.letterArr.length; i++) {
-    //         var replyString = this.letterArr[i].state();
-    //         // console.log("THIS replyString value is: " + replyString + "and the type is " + typeof replyString);
-    //         replyArr.push(replyString);
-    //     }
-    //     console.log("reply array joined: " + replyArr.join(""))
-    // };

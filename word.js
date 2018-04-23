@@ -26,10 +26,10 @@ function Word(gameWord) {
     };
 };
     //CODE for TESTING
-    myWordObj = new Word("bana");
-    console.log(myWordObj); //everything in default state
-    myWordObj.validator("b");//pass a letter to check
-    myWordObj.wordString();//Generate a string of l_tt_rs
+    // myWordObj = new Word("bana");
+    // console.log(myWordObj); //everything in default state
+    // myWordObj.validator("b");//pass a letter to check
+    // myWordObj.wordString();//Generate a string of l_tt_rs
 
 
 

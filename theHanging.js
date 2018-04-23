@@ -1,10 +1,13 @@
 var Hanging = function (char) {
     //wrong character Array
-    guessedArr = [];
+    this.wrongGuesses = [];
+    this.guessArrBuilder=function(el) {
+        if (this.wrongGuesses.indexOf(el) === -1) this.wrongGuesses.push(el)
+      }
 
     // create a function that takes in the length of wrong guesses as switch cases
     this.staging = function () {
-        console.log(guessedArr.length)
+        console.log(this.wrongGuesses.length)
         switch (guessedArr.length) {
             case 0:
             console.log("Good Guess!")

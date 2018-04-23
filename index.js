@@ -3,7 +3,7 @@
 // * Randomly selects a word and uses the `Word` constructor to store it
 var inquirer = require("inquirer");
 var Word = require("./word.js");
-var Hanging = require("./theHanging.js");
+// var Hanging = require("./theHanging.js");
 
 
 //* Pick a Word to play with from an Array
@@ -22,22 +22,23 @@ wordChooser();//run our word Chooser
 //*Create a wordObj using the word constuctor
 var wordObj = new Word(gameWord);//takes the selected word and constructs a word obj
 
+//game letters
 var gameWordArr = gameWord.split("");
 console.log(gameWordArr);
-var guessedArr = [];
-var wrongGuesses =[];
+var wrongGuesses =[];//only hold Graveyard letters  
 //invoke this function when creating the guessed array
-function guessArrBuild(el) {
-  if (guessedArr.indexOf(el) === -1) guessedArr.push(el)
+guessArrBuild=function(el) {
+    if (wrongGuesses.indexOf(el) === -1) wrongGuesses.push(el)
 }
-myHanging = new Hanging(guessedArr);
+console.log(wrongGuesses);
+// myHanging = new Hanging(guessedArr);
 //play function
 console.log(gameWord) //our solution
 
 //Game Play
 var play = function () {
   //Run this loop while the guess array is less than 8, though we have other exit points
-  if (guessedArr.length < 8) {
+  if (wrongGuesses.length < 8) {
     inquirer.prompt([
       {
         name: "userGuess",
@@ -51,11 +52,11 @@ var play = function () {
       wordObj.validator(guess); //runs logic
       wordObj.wordString(); //displays the word representation
 
-
       guessArrBuild(guess);  // push to guessedArray or not
-      myHanging.staging(guessedArr);
+      console.log("wrong Guesses: "+wrongGuesses); //how can I keep the right guesses out?
+      
+      // myHanging.staging(wrongGuesses);
       play();//the loop play
-
     });
   }
 }

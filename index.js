@@ -57,9 +57,23 @@ var play = function () {
 
       guessArrBuild(guess);  // push to guessedArray or not
       console.log("wrong Guesses: " + wrongGuesses); //how can I keep the right guesses out?
-
+      //winning scenario
+      function winning() {
+        var castleSteps = [];
+        for (i = 0; i < wordObj.letterArr.length; i++) {
+          castleSteps.push(wordObj.letterArr[i].guessed); //THIS is the path you Seek
+        }
+        castleSteps.forEach(callBack)
+        function callBack(){
+          for(i=0; i<castleSteps.length; i++){
+            castleSteps[i]=true;
+          }
+        };
+        console.log("castle steps " + castleSteps);
+      }
+      winning();
       myHanging.staging(wrongGuesses);
-     
+
       play();//the loop play
     });
   }

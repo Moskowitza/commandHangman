@@ -3,7 +3,7 @@ var Hanging = function (wrongGuesses) {
 
     // create a function that takes in the length of wrong guesses as switch cases
     this.staging = function () {
-        console.log(wrongGuesses.length)
+        // console.log(wrongGuesses.length)
         switch (wrongGuesses.length) {
             case 0:
             console.log("Good Guess!")

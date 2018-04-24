@@ -6,8 +6,8 @@ var Word = require("./word.js");
 var Hanging = require("./theHanging.js");
 
 
-//* Pick a Word to play with from an Array
-wordArr = ["hummus", "tofu", "kale"];
+//* Pick a Word to play with from an Array "tofu", "kale","seitan","veganaise","broccoli"
+wordArr = ["tofu", "kale","seitan","veganaise","broccoli","hummus","beyond burger","tofurky","bananas"];
 // this.gameWord = "";
 wordChooser = function () {
   var i = wordArr.length;//how many choices (3)
@@ -24,7 +24,7 @@ var wordObj = new Word(gameWord);//takes the selected word and constructs a word
 
 //game letters
 var gameWordArr = gameWord.split("");
-console.log(gameWordArr);
+// console.log(gameWordArr);
 var wrongGuesses = [];//only hold Graveyard letters  
 //invoke this function when creating the guessed array
 guessArrBuild = function (userGuess) {
@@ -36,7 +36,7 @@ guessArrBuild = function (userGuess) {
 
 myHanging = new Hanging(wrongGuesses);
 //play function
-console.log(gameWord) //our solution
+// console.log(gameWord) //our solution
 
 //Game Play
 var play = function () {
@@ -49,34 +49,47 @@ var play = function () {
       }
     ]).then(function (input) {
       //TAKE IN THE GUESS
-      var guess = input.userGuess[0];
-      console.log("Following the prompt, you guessed " + guess);
+      var guess = input.userGuess[0].toLowerCase();
+      // console.log("Following the prompt, you guessed " + guess);
       //See if the Guess is in our word  
       wordObj.validator(guess); //runs logic
       wordObj.wordString(); //displays the word representation
 
       guessArrBuild(guess);  // push to guessedArray or not
-      console.log("wrong Guesses: " + wrongGuesses); //how can I keep the right guesses out?
-      //winning scenario
+      // console.log("wrong Guesses: " + wrongGuesses); //how can I keep the right guesses out?
+      // winning scenario
       function winning() {
-        var castleSteps = [];
+        var castleSteps = []; //to hold our Booleon from letter
         for (i = 0; i < wordObj.letterArr.length; i++) {
           castleSteps.push(wordObj.letterArr[i].guessed); //THIS is the path you Seek
+          //check on it
         }
-        castleSteps.forEach(callBack)
-        function callBack(){
-          for(i=0; i<castleSteps.length; i++){
-            castleSteps[i]=true;
+          // console.log("castle steps " + castleSteps);
+          function isTrue(currentValue) {
+            return currentValue === true;
           }
-        };
-        console.log("castle steps " + castleSteps);
+          if (castleSteps.every(isTrue)) {
+            console.log("YOU WIN!!!!!!!!");
+            process.exit()
+          }
+        
+        // castleSteps.forEach(callBack)
+        // function callBack() {
+        //   for (i = 0; i < castleSteps.length; i++) {
+        //     if (castleSteps[i] === true) {
+        //       console.log("you win")
+        //     }
+        //   }
+        // }
       }
+
       winning();
       myHanging.staging(wrongGuesses);
 
       play();//the loop play
     });
-  }
+  };
 }
+
 play(); //play the game
 
